@@ -1,0 +1,589 @@
+{
+  "metadata": {
+    "title": "Customer Segmentation & RFM Analytics Executive Portal",
+    "author": "Austin Ajay",
+    "github": "https://github.com/austinajay",
+    "dataset_source": "UCI Online Retail II Dataset",
+    "timeframe": "December 2009 \u2013 December 2011",
+    "last_updated": "November 2026"
+  },
+  "kpis": {
+    "total_revenue": 17743429.18,
+    "total_customers": 5878,
+    "total_orders": 36969,
+    "total_transactions": 805549,
+    "avg_order_value": 479.95,
+    "avg_customer_value": 3018.62,
+    "repeat_rate": 72.4,
+    "champions_revenue_share": 68.1,
+    "at_risk_revenue": 2024531.75,
+    "at_risk_customers": 1727
+  },
+  "segments": [
+    {
+      "name": "Champions",
+      "tier": "High Value",
+      "customer_count": 1292,
+      "customer_pct": 22.0,
+      "total_revenue": 12087432.74,
+      "revenue_pct": 68.1,
+      "avg_recency": 19.7,
+      "avg_frequency": 17.1,
+      "avg_monetary": 9355.6,
+      "color": "#10B981",
+      "badge": "Top VIPs",
+      "risk": "Low",
+      "description": "Recent, highly frequent buyers who spend significantly more than average.",
+      "action": "Reward loyalty with VIP perks, early product releases, personalized concierge service, and referral incentives."
+    },
+    {
+      "name": "Loyal",
+      "tier": "High Value",
+      "customer_count": 1141,
+      "customer_pct": 19.4,
+      "total_revenue": 2642866.02,
+      "revenue_pct": 14.9,
+      "avg_recency": 73.2,
+      "avg_frequency": 6.0,
+      "avg_monetary": 2316.27,
+      "color": "#3B82F6",
+      "badge": "Core Buyers",
+      "risk": "Low",
+      "description": "Consistent repeat customers who purchase regularly with strong spending power.",
+      "action": "Offer loyalty program tier progressions, cross-sell premium complementary categories, and request product reviews."
+    },
+    {
+      "name": "At Risk",
+      "tier": "Low Value/At Risk",
+      "customer_count": 1727,
+      "customer_pct": 29.4,
+      "total_revenue": 2024531.75,
+      "revenue_pct": 11.4,
+      "avg_recency": 467.1,
+      "avg_frequency": 3.0,
+      "avg_monetary": 1172.28,
+      "color": "#EF4444",
+      "badge": "Churn Alert",
+      "risk": "Critical",
+      "description": "Historically high-spending customers who haven\u2019t purchased in 12+ months.",
+      "action": "Deploy dedicated churn prevention playbook: deep discount recovery offers, direct executive check-in, or re-marketing ads."
+    },
+    {
+      "name": "New Customers",
+      "tier": "Medium Value",
+      "customer_count": 441,
+      "customer_pct": 7.5,
+      "total_revenue": 394209.85,
+      "revenue_pct": 2.2,
+      "avg_recency": 28.0,
+      "avg_frequency": 1.5,
+      "avg_monetary": 893.9,
+      "color": "#06B6D4",
+      "badge": "Fresh Leads",
+      "risk": "Medium",
+      "description": "Bought very recently but have only 1 or 2 purchases so far.",
+      "action": "Trigger an automated welcome nurture sequence, share top-selling product guides, and offer a second-purchase coupon."
+    },
+    {
+      "name": "Need Attention",
+      "tier": "Medium Value",
+      "customer_count": 512,
+      "customer_pct": 8.7,
+      "total_revenue": 288610.44,
+      "revenue_pct": 1.6,
+      "avg_recency": 237.2,
+      "avg_frequency": 1.7,
+      "avg_monetary": 563.69,
+      "color": "#F59E0B",
+      "badge": "At Risk of Slipping",
+      "risk": "Medium-High",
+      "description": "Above-average past activity, but have not made a purchase in over 6-8 months.",
+      "action": "Send personalized re-engagement campaigns with limited-time reactivation discounts and customer satisfaction check-ins."
+    },
+    {
+      "name": "About to Sleep",
+      "tier": "Low Value/At Risk",
+      "customer_count": 496,
+      "customer_pct": 8.4,
+      "total_revenue": 195001.09,
+      "revenue_pct": 1.1,
+      "avg_recency": 236.0,
+      "avg_frequency": 1.0,
+      "avg_monetary": 393.15,
+      "color": "#F97316",
+      "badge": "Drifting",
+      "risk": "High",
+      "description": "Made only 1 purchase long ago and will churn permanently if not engaged promptly.",
+      "action": "Target with aggressive win-back deals, re-introduce popular seasonal products, and survey for lost interest reasons."
+    },
+    {
+      "name": "Potential",
+      "tier": "High Value",
+      "customer_count": 269,
+      "customer_pct": 4.6,
+      "total_revenue": 110777.28,
+      "revenue_pct": 0.6,
+      "avg_recency": 63.0,
+      "avg_frequency": 3.3,
+      "avg_monetary": 411.81,
+      "color": "#8B5CF6",
+      "badge": "High Growth",
+      "risk": "Medium",
+      "description": "Recent frequent buyers with lower average order values.",
+      "action": "Incentivize higher basket size with minimum spend discounts (e.g., \u00a320 off \u00a3100) and product bundle recommendations."
+    }
+  ],
+  "monthly_trends": [
+    {
+      "date": "2009-12",
+      "revenue": 686654.16,
+      "orders": 1512,
+      "customers": 955
+    },
+    {
+      "date": "2010-01",
+      "revenue": 557319.06,
+      "orders": 1011,
+      "customers": 720
+    },
+    {
+      "date": "2010-02",
+      "revenue": 506371.07,
+      "orders": 1104,
+      "customers": 772
+    },
+    {
+      "date": "2010-03",
+      "revenue": 699608.99,
+      "orders": 1524,
+      "customers": 1057
+    },
+    {
+      "date": "2010-04",
+      "revenue": 594609.19,
+      "orders": 1329,
+      "customers": 942
+    },
+    {
+      "date": "2010-05",
+      "revenue": 599985.79,
+      "orders": 1377,
+      "customers": 966
+    },
+    {
+      "date": "2010-06",
+      "revenue": 639066.58,
+      "orders": 1497,
+      "customers": 1041
+    },
+    {
+      "date": "2010-07",
+      "revenue": 591636.74,
+      "orders": 1381,
+      "customers": 928
+    },
+    {
+      "date": "2010-08",
+      "revenue": 604242.65,
+      "orders": 1293,
+      "customers": 911
+    },
+    {
+      "date": "2010-09",
+      "revenue": 831615.0,
+      "orders": 1689,
+      "customers": 1145
+    },
+    {
+      "date": "2010-10",
+      "revenue": 1036680.0,
+      "orders": 2133,
+      "customers": 1497
+    },
+    {
+      "date": "2010-11",
+      "revenue": 1172336.04,
+      "orders": 2587,
+      "customers": 1607
+    },
+    {
+      "date": "2010-12",
+      "revenue": 884591.89,
+      "orders": 1400,
+      "customers": 885
+    },
+    {
+      "date": "2011-01",
+      "revenue": 569445.04,
+      "orders": 987,
+      "customers": 741
+    },
+    {
+      "date": "2011-02",
+      "revenue": 447137.35,
+      "orders": 997,
+      "customers": 758
+    },
+    {
+      "date": "2011-03",
+      "revenue": 595500.76,
+      "orders": 1321,
+      "customers": 974
+    },
+    {
+      "date": "2011-04",
+      "revenue": 469200.36,
+      "orders": 1149,
+      "customers": 856
+    },
+    {
+      "date": "2011-05",
+      "revenue": 678594.56,
+      "orders": 1555,
+      "customers": 1056
+    },
+    {
+      "date": "2011-06",
+      "revenue": 661213.69,
+      "orders": 1393,
+      "customers": 991
+    },
+    {
+      "date": "2011-07",
+      "revenue": 600091.01,
+      "orders": 1331,
+      "customers": 949
+    },
+    {
+      "date": "2011-08",
+      "revenue": 645343.9,
+      "orders": 1280,
+      "customers": 935
+    },
+    {
+      "date": "2011-09",
+      "revenue": 952838.38,
+      "orders": 1755,
+      "customers": 1266
+    },
+    {
+      "date": "2011-10",
+      "revenue": 1039318.79,
+      "orders": 1929,
+      "customers": 1364
+    },
+    {
+      "date": "2011-11",
+      "revenue": 1161817.38,
+      "orders": 2657,
+      "customers": 1664
+    },
+    {
+      "date": "2011-12",
+      "revenue": 518210.79,
+      "orders": 778,
+      "customers": 615
+    }
+  ],
+  "country_breakdown": [
+    {
+      "country": "United Kingdom",
+      "revenue": 14723147.52,
+      "revenue_pct": 83.0,
+      "customers": 5350,
+      "orders": 33541
+    },
+    {
+      "country": "EIRE",
+      "revenue": 621631.11,
+      "revenue_pct": 3.5,
+      "customers": 5,
+      "orders": 567
+    },
+    {
+      "country": "Netherlands",
+      "revenue": 554232.34,
+      "revenue_pct": 3.1,
+      "customers": 22,
+      "orders": 228
+    },
+    {
+      "country": "Germany",
+      "revenue": 431262.46,
+      "revenue_pct": 2.4,
+      "customers": 107,
+      "orders": 789
+    },
+    {
+      "country": "France",
+      "revenue": 355257.47,
+      "revenue_pct": 2.0,
+      "customers": 95,
+      "orders": 614
+    },
+    {
+      "country": "Australia",
+      "revenue": 169968.11,
+      "revenue_pct": 1.0,
+      "customers": 15,
+      "orders": 95
+    },
+    {
+      "country": "Spain",
+      "revenue": 109178.53,
+      "revenue_pct": 0.6,
+      "customers": 41,
+      "orders": 154
+    },
+    {
+      "country": "Switzerland",
+      "revenue": 100365.34,
+      "revenue_pct": 0.6,
+      "customers": 22,
+      "orders": 90
+    },
+    {
+      "country": "Sweden",
+      "revenue": 91549.72,
+      "revenue_pct": 0.5,
+      "customers": 19,
+      "orders": 104
+    },
+    {
+      "country": "Denmark",
+      "revenue": 69862.19,
+      "revenue_pct": 0.4,
+      "customers": 12,
+      "orders": 43
+    }
+  ],
+  "top_products": [
+    {
+      "name": "REGENCY CAKESTAND 3 TIER",
+      "revenue": 286486.3,
+      "units_sold": 24899
+    },
+    {
+      "name": "WHITE HANGING HEART T-LIGHT HOLDER",
+      "revenue": 252072.46,
+      "units_sold": 93640
+    },
+    {
+      "name": "PAPER CRAFT , LITTLE BIRDIE",
+      "revenue": 168469.6,
+      "units_sold": 80995
+    },
+    {
+      "name": "Manual",
+      "revenue": 152340.57,
+      "units_sold": 9803
+    },
+    {
+      "name": "JUMBO BAG RED RETROSPOT",
+      "revenue": 136980.08,
+      "units_sold": 75759
+    },
+    {
+      "name": "ASSORTED COLOUR BIRD ORNAMENT",
+      "revenue": 127074.17,
+      "units_sold": 79913
+    },
+    {
+      "name": "POSTAGE",
+      "revenue": 126563.04,
+      "units_sold": 5333
+    },
+    {
+      "name": "PARTY BUNTING",
+      "revenue": 103880.23,
+      "units_sold": 23607
+    },
+    {
+      "name": "MEDIUM CERAMIC TOP STORAGE JAR",
+      "revenue": 81416.73,
+      "units_sold": 77916
+    },
+    {
+      "name": "PAPER CHAIN KIT 50'S CHRISTMAS",
+      "revenue": 79594.33,
+      "units_sold": 29477
+    }
+  ],
+  "rfm_grid": [
+    {
+      "r_score": 1,
+      "f_score": 1,
+      "count": 513,
+      "avg_monetary": 345.37,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 1,
+      "f_score": 2,
+      "count": 389,
+      "avg_monetary": 545.96,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 1,
+      "f_score": 3,
+      "count": 185,
+      "avg_monetary": 1037.71,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 1,
+      "f_score": 4,
+      "count": 72,
+      "avg_monetary": 2252.15,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 1,
+      "f_score": 5,
+      "count": 17,
+      "avg_monetary": 6378.39,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 2,
+      "f_score": 1,
+      "count": 304,
+      "avg_monetary": 369.7,
+      "dominant_segment": "About to Sleep"
+    },
+    {
+      "r_score": 2,
+      "f_score": 2,
+      "count": 320,
+      "avg_monetary": 519.36,
+      "dominant_segment": "Need Attention"
+    },
+    {
+      "r_score": 2,
+      "f_score": 3,
+      "count": 286,
+      "avg_monetary": 1104.09,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 2,
+      "f_score": 4,
+      "count": 211,
+      "avg_monetary": 1762.19,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 2,
+      "f_score": 5,
+      "count": 54,
+      "avg_monetary": 8978.16,
+      "dominant_segment": "At Risk"
+    },
+    {
+      "r_score": 3,
+      "f_score": 1,
+      "count": 192,
+      "avg_monetary": 430.28,
+      "dominant_segment": "About to Sleep"
+    },
+    {
+      "r_score": 3,
+      "f_score": 2,
+      "count": 192,
+      "avg_monetary": 637.58,
+      "dominant_segment": "Need Attention"
+    },
+    {
+      "r_score": 3,
+      "f_score": 3,
+      "count": 268,
+      "avg_monetary": 1278.69,
+      "dominant_segment": "Loyal"
+    },
+    {
+      "r_score": 3,
+      "f_score": 4,
+      "count": 321,
+      "avg_monetary": 2138.84,
+      "dominant_segment": "Loyal"
+    },
+    {
+      "r_score": 3,
+      "f_score": 5,
+      "count": 203,
+      "avg_monetary": 5296.96,
+      "dominant_segment": "Loyal"
+    },
+    {
+      "r_score": 4,
+      "f_score": 1,
+      "count": 113,
+      "avg_monetary": 321.6,
+      "dominant_segment": "New Customers"
+    },
+    {
+      "r_score": 4,
+      "f_score": 2,
+      "count": 166,
+      "avg_monetary": 603.77,
+      "dominant_segment": "New Customers"
+    },
+    {
+      "r_score": 4,
+      "f_score": 3,
+      "count": 253,
+      "avg_monetary": 1087.7,
+      "dominant_segment": "Loyal"
+    },
+    {
+      "r_score": 4,
+      "f_score": 4,
+      "count": 308,
+      "avg_monetary": 2332.5,
+      "dominant_segment": "Champions"
+    },
+    {
+      "r_score": 4,
+      "f_score": 5,
+      "count": 335,
+      "avg_monetary": 7274.37,
+      "dominant_segment": "Champions"
+    },
+    {
+      "r_score": 5,
+      "f_score": 1,
+      "count": 54,
+      "avg_monetary": 360.67,
+      "dominant_segment": "New Customers"
+    },
+    {
+      "r_score": 5,
+      "f_score": 2,
+      "count": 108,
+      "avg_monetary": 2205.24,
+      "dominant_segment": "New Customers"
+    },
+    {
+      "r_score": 5,
+      "f_score": 3,
+      "count": 184,
+      "avg_monetary": 1141.35,
+      "dominant_segment": "Loyal"
+    },
+    {
+      "r_score": 5,
+      "f_score": 4,
+      "count": 263,
+      "avg_monetary": 2103.13,
+      "dominant_segment": "Champions"
+    },
+    {
+      "r_score": 5,
+      "f_score": 5,
+      "count": 567,
+      "avg_monetary": 15066.83,
+      "dominant_segment": "Champions"
+    }
+  ]
+}

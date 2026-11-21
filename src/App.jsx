@@ -64,10 +64,10 @@ export default function App() {
   const { kpis, segments, monthly_trends, country_breakdown, top_products, rfm_grid, customers, metadata } = analyticsData;
 
   // Format currency
-  const formatGBP = (num) => {
-    if (num >= 1e6) return `£${(num / 1e6).toFixed(2)}M`;
-    if (num >= 1e3) return `£${(num / 1e3).toFixed(1)}k`;
-    return `£${num.toFixed(2)}`;
+  const formatCurrency = (num) => {
+    if (num >= 1e6) return `₹${(num / 1e6).toFixed(2)}M`;
+    if (num >= 1e3) return `₹${(num / 1e3).toFixed(1)}k`;
+    return `₹${num.toFixed(2)}`;
   };
 
   // Filtered customers for explorer
@@ -100,7 +100,7 @@ export default function App() {
 
   // CSV Export
   const handleExportCSV = () => {
-    const headers = ['CustomerID', 'Recency_Days', 'Frequency_Orders', 'Monetary_GBP', 'Country', 'RFM_Score', 'Segment', 'Segment_Tier'];
+    const headers = ['CustomerID', 'Recency_Days', 'Frequency_Orders', 'Monetary_INR', 'Country', 'RFM_Score', 'Segment', 'Segment_Tier'];
     const rows = filteredCustomers.map(c => [c.id, c.r, c.f, c.m, `"${c.c}"`, c.rfm, `"${c.s}"`, `"${c.t}"`]);
     const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
     const encodedUri = encodeURI(csvContent);
@@ -173,7 +173,7 @@ export default function App() {
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
               Analyzed 805,549 transactions and 5,878 customers from the UK Online Retail dataset.
-              Engineered RFM scores to uncover retention vulnerabilities, VIP revenue concentration, and £2.02M in churn-preventable revenue.
+              Engineered RFM scores to uncover retention vulnerabilities, VIP revenue concentration, and ₹2.02M in churn-preventable revenue.
             </p>
           </div>
         </div>
@@ -186,11 +186,11 @@ export default function App() {
               <CreditCard className="w-4 h-4 text-emerald-400" />
             </div>
             <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              {formatGBP(kpis.total_revenue)}
+              {formatCurrency(kpis.total_revenue)}
             </div>
             <div className="text-xs text-emerald-400 font-medium mt-1 flex items-center gap-1">
               <TrendingUp className="w-3 h-3" />
-              <span>£17,743,429.18</span>
+              <span>₹17,743,429.18</span>
             </div>
           </div>
 
@@ -213,7 +213,7 @@ export default function App() {
               <Award className="w-4 h-4 text-amber-400" />
             </div>
             <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              £{kpis.avg_order_value.toFixed(2)}
+              ₹{kpis.avg_order_value.toFixed(2)}
             </div>
             <div className="text-xs text-slate-400 mt-1">
               <span>across {kpis.total_orders.toLocaleString()} orders</span>
@@ -239,7 +239,7 @@ export default function App() {
               <AlertTriangle className="w-4 h-4 text-rose-400" />
             </div>
             <div className="text-xl sm:text-2xl font-bold text-rose-200 tracking-tight">
-              {formatGBP(kpis.at_risk_revenue)}
+              {formatCurrency(kpis.at_risk_revenue)}
             </div>
             <div className="text-xs text-rose-400 font-medium mt-1">
               <span>{kpis.at_risk_customers.toLocaleString()} dormant clients</span>
@@ -304,7 +304,7 @@ export default function App() {
                         ))}
                       </Pie>
                       <Tooltip
-                        formatter={(val) => [formatGBP(val), 'Revenue']}
+                        formatter={(val) => [formatCurrency(val), 'Revenue']}
                         contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px' }}
                       />
                       <Legend verticalAlign="bottom" height={36} iconType="circle" />
@@ -376,12 +376,12 @@ export default function App() {
                         </div>
                         <div>
                           <div className="text-[10px] text-slate-500 uppercase">Revenue</div>
-                          <div className="text-xs font-bold text-emerald-400">{formatGBP(seg.total_revenue)}</div>
+                          <div className="text-xs font-bold text-emerald-400">{formatCurrency(seg.total_revenue)}</div>
                           <div className="text-[10px] text-slate-400">({seg.revenue_pct}%)</div>
                         </div>
                         <div>
                           <div className="text-[10px] text-slate-500 uppercase">Avg Spend</div>
-                          <div className="text-xs font-bold text-indigo-300">£{seg.avg_monetary.toFixed(0)}</div>
+                          <div className="text-xs font-bold text-indigo-300">₹{seg.avg_monetary.toFixed(0)}</div>
                           <div className="text-[10px] text-slate-400">/ cust</div>
                         </div>
                       </div>
@@ -446,7 +446,7 @@ export default function App() {
                               }}
                             >
                               <div className="font-bold text-sm text-white">{cell.count}</div>
-                              <div className="text-[10px] text-slate-300">£{cell.avg_monetary.toFixed(0)} avg</div>
+                              <div className="text-[10px] text-slate-300">₹{cell.avg_monetary.toFixed(0)} avg</div>
                               <div className="text-[10px] text-indigo-300 font-medium truncate mt-0.5">
                                 {cell.dominant_segment}
                               </div>
@@ -488,7 +488,7 @@ export default function App() {
                 </div>
                 <h4 className="font-bold text-white text-sm mb-1">Monetary (1 - 5)</h4>
                 <p className="text-xs text-slate-400">
-                  Cumulative transaction revenue in GBP (£). Top quintile spenders represent 68%+ of store revenue volume.
+                  Cumulative transaction revenue in Rupees (₹). Top quintile spenders represent 68%+ of store revenue volume.
                 </p>
               </div>
             </div>
@@ -508,14 +508,14 @@ export default function App() {
                   <LineChart data={monthly_trends} margin={{ top: 10, right: 20, left: 10, bottom: 25 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
                     <XAxis dataKey="date" stroke="#64748b" tick={{ fontSize: 11 }} angle={-35} textAnchor="end" />
-                    <YAxis yAxisId="left" stroke="#64748b" tick={{ fontSize: 11 }} tickFormatter={(val) => `£${(val/1e3).toFixed(0)}k`} />
+                    <YAxis yAxisId="left" stroke="#64748b" tick={{ fontSize: 11 }} tickFormatter={(val) => `₹${(val/1e3).toFixed(0)}k`} />
                     <YAxis yAxisId="right" orientation="right" stroke="#64748b" tick={{ fontSize: 11 }} />
                     <Tooltip
-                      formatter={(val, name) => [name === 'revenue' ? `£${val.toLocaleString()}` : val.toLocaleString(), name === 'revenue' ? 'Revenue (£)' : 'Orders']}
+                      formatter={(val, name) => [name === 'revenue' ? `₹${val.toLocaleString()}` : val.toLocaleString(), name === 'revenue' ? 'Revenue (₹)' : 'Orders']}
                       contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px' }}
                     />
                     <Legend verticalAlign="top" height={36} />
-                    <Line yAxisId="left" type="monotone" dataKey="revenue" name="Revenue (£)" stroke="#10b981" strokeWidth={2.5} dot={{ r: 3 }} />
+                    <Line yAxisId="left" type="monotone" dataKey="revenue" name="Revenue (₹)" stroke="#10b981" strokeWidth={2.5} dot={{ r: 3 }} />
                     <Line yAxisId="right" type="monotone" dataKey="orders" name="Orders" stroke="#6366f1" strokeWidth={2} dot={{ r: 2 }} />
                   </LineChart>
                 </ResponsiveContainer>
@@ -538,7 +538,7 @@ export default function App() {
                       </div>
                       <div className="flex items-center gap-4 text-right">
                         <div>
-                          <span className="font-bold text-emerald-400">{formatGBP(item.revenue)}</span>
+                          <span className="font-bold text-emerald-400">{formatCurrency(item.revenue)}</span>
                           <span className="text-[10px] text-slate-400 ml-1">({item.revenue_pct}%)</span>
                         </div>
                         <div className="text-slate-400 w-16">{item.customers} clients</div>
@@ -562,7 +562,7 @@ export default function App() {
                         <span className="font-semibold text-slate-200 truncate" title={p.name}>{p.name}</span>
                       </div>
                       <div className="flex items-center gap-4 text-right">
-                        <span className="font-bold text-amber-400">{formatGBP(p.revenue)}</span>
+                        <span className="font-bold text-amber-400">{formatCurrency(p.revenue)}</span>
                         <span className="text-slate-400 w-20">{p.units_sold.toLocaleString()} units</span>
                       </div>
                     </div>
@@ -586,7 +586,7 @@ export default function App() {
                   What-If Revenue Uplift Simulator
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                  Model financial recovery by adjusting retention rates for £2.02M in At-Risk customers and driving loyalty repeat purchase frequency among Champions.
+                  Model financial recovery by adjusting retention rates for ₹2.02M in At-Risk customers and driving loyalty repeat purchase frequency among Champions.
                 </p>
               </div>
 
@@ -614,7 +614,7 @@ export default function App() {
                     <span>Aggressive (30%)</span>
                   </div>
                   <div className="text-xs text-slate-400 pt-2 border-t border-slate-800">
-                    Projected Recovered Revenue: <strong className="text-emerald-400">{formatGBP(recoveredRevenue)}</strong>
+                    Projected Recovered Revenue: <strong className="text-emerald-400">{formatCurrency(recoveredRevenue)}</strong>
                   </div>
                 </div>
 
@@ -641,7 +641,7 @@ export default function App() {
                     <span>High (+25%)</span>
                   </div>
                   <div className="text-xs text-slate-400 pt-2 border-t border-slate-800">
-                    Projected Incremental Spend: <strong className="text-emerald-400">{formatGBP(boostedRevenue)}</strong>
+                    Projected Incremental Spend: <strong className="text-emerald-400">{formatCurrency(boostedRevenue)}</strong>
                   </div>
                 </div>
               </div>
@@ -650,16 +650,16 @@ export default function App() {
               <div className="p-6 rounded-xl bg-indigo-900/30 border border-indigo-500/40 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-xs text-slate-400 uppercase tracking-wider mb-1">Recovered At-Risk</div>
-                  <div className="text-xl font-bold text-rose-300">{formatGBP(recoveredRevenue)}</div>
+                  <div className="text-xl font-bold text-rose-300">{formatCurrency(recoveredRevenue)}</div>
                 </div>
                 <div>
                   <div className="text-xs text-slate-400 uppercase tracking-wider mb-1">Champions Expansion</div>
-                  <div className="text-xl font-bold text-purple-300">{formatGBP(boostedRevenue)}</div>
+                  <div className="text-xl font-bold text-purple-300">{formatCurrency(boostedRevenue)}</div>
                 </div>
                 <div className="sm:border-l sm:border-indigo-500/30 sm:pl-6">
                   <div className="text-xs text-indigo-300 uppercase tracking-wider font-semibold mb-1">Total Simulated Uplift</div>
                   <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400">
-                    +{formatGBP(totalSimulatedUplift)}
+                    +{formatCurrency(totalSimulatedUplift)}
                   </div>
                   <div className="text-xs text-emerald-300 font-medium mt-1">
                     +{upliftPercentage}% baseline revenue growth
@@ -757,7 +757,7 @@ export default function App() {
                           <td className="py-3 px-4 text-slate-300">{c.c}</td>
                           <td className="py-3 px-4 text-right text-slate-300">{c.r}d ago</td>
                           <td className="py-3 px-4 text-right text-slate-300 font-semibold">{c.f} orders</td>
-                          <td className="py-3 px-4 text-right font-bold text-emerald-400">£{c.m.toLocaleString()}</td>
+                          <td className="py-3 px-4 text-right font-bold text-emerald-400">₹{c.m.toLocaleString()}</td>
                           <td className="py-3 px-4 text-center">
                             <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-slate-300 font-bold border border-slate-700">
                               {c.rfm}

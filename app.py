@@ -74,9 +74,9 @@ avg_recency = filtered_df['Recency'].mean() if total_customers > 0 else 0
 avg_freq = filtered_df['Frequency'].mean() if total_customers > 0 else 0
 
 kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
-kpi1.metric("Total Revenue", f"£{total_revenue:,.2f}")
+kpi1.metric("Total Revenue", f"₹{total_revenue:,.2f}")
 kpi2.metric("Filtered Customers", f"{total_customers:,}")
-kpi3.metric("Avg Spend / Customer", f"£{avg_spend:,.2f}")
+kpi3.metric("Avg Spend / Customer", f"₹{avg_spend:,.2f}")
 kpi4.metric("Avg Recency", f"{avg_recency:.0f} days")
 kpi5.metric("Avg Frequency", f"{avg_freq:.1f} orders")
 
@@ -152,9 +152,9 @@ with tab3:
     total_projected_gain = recovered_at_risk + incremental_champ
     
     m1, m2, m3 = st.columns(3)
-    m1.metric("Recovered At-Risk Revenue", f"£{recovered_at_risk:,.2f}")
-    m2.metric("Incremental Champions Growth", f"£{incremental_champ:,.2f}")
-    m3.metric("Total Projected Uplift", f"£{total_projected_gain:,.2f}", delta=f"+{((total_projected_gain/total_revenue)*100):.1f}%")
+    m1.metric("Recovered At-Risk Revenue", f"₹{recovered_at_risk:,.2f}")
+    m2.metric("Incremental Champions Growth", f"₹{incremental_champ:,.2f}")
+    m3.metric("Total Projected Uplift", f"₹{total_projected_gain:,.2f}", delta=f"+{((total_projected_gain/total_revenue)*100):.1f}%")
 
 with tab4:
     st.subheader("Customer Records Explorer")
@@ -173,3 +173,4 @@ with tab4:
 
 st.markdown("---")
 st.markdown("Developed by **Austin Ajay** | Customer Segmentation & RFM Analysis Portfolio")
+

@@ -39,7 +39,7 @@ SEGMENT_RULES = [
         'segment': 'Potential',
         'tier': 'Medium Value',
         'condition': lambda r, f, m: (r >= 3) & (f >= 3) & (m <= 2),
-        'strategy': 'Threshold incentives (e.g. £20 off £100), bundle discounts to lift basket size.'
+        'strategy': 'Threshold incentives (e.g. ₹20 off ₹100), bundle discounts to lift basket size.'
     },
     {
         'segment': 'New Customers',
@@ -148,8 +148,8 @@ def print_executive_report(rfm: pd.DataFrame):
     print("       EXECUTIVE CUSTOMER SEGMENTATION & RFM SUMMARY REPORT       ")
     print("=" * 70)
     print(f"Total Active Customers : {total_cust:,}")
-    print(f"Total Revenue Realized : £{total_rev:,.2f}")
-    print(f"Average Customer Value : £{(total_rev / total_cust):,.2f}")
+    print(f"Total Revenue Realized : ₹{total_rev:,.2f}")
+    print(f"Average Customer Value : ₹{(total_rev / total_cust):,.2f}")
     print("-" * 70)
     
     summary = rfm.groupby('Segment').agg(
@@ -167,8 +167,8 @@ def print_executive_report(rfm: pd.DataFrame):
     for _, row in summary.iterrows():
         print(f"[{row['Segment'].upper()}]")
         print(f"  Customers : {row['Customers']:,} ({row['Cust_Share_%']}%)")
-        print(f"  Revenue   : £{row['Total_Revenue']:,.2f} ({row['Rev_Share_%']}%)")
-        print(f"  Averages  : Recency {row['Avg_Recency']:.0f}d | Freq {row['Avg_Freq']:.1f} orders | Spend £{row['Avg_Spend']:,.2f}")
+        print(f"  Revenue   : ₹{row['Total_Revenue']:,.2f} ({row['Rev_Share_%']}%)")
+        print(f"  Averages  : Recency {row['Avg_Recency']:.0f}d | Freq {row['Avg_Freq']:.1f} orders | Spend ₹{row['Avg_Spend']:,.2f}")
         print()
     print("=" * 70)
 
@@ -198,3 +198,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
